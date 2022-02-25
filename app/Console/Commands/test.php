@@ -37,6 +37,5 @@ class test extends Command
      */
     public function handle()
     {
-        $this->info('command from packg');
     }
 }

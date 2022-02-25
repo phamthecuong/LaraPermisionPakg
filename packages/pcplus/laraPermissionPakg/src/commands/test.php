@@ -1,18 +1,18 @@
 <?php
 
-namespace Pcplus\LaraPermissionPakg\commands;
+namespace Pcplus\LaraPermissionPakg\Commands;
 
 
 use Illuminate\Console\Command;
 
-class Test extends Command
+class test extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'test:cmd';
+    protected $signature = 'test:info';
 
     /**
      * The console command description.
@@ -38,6 +38,6 @@ class Test extends Command
      */
     public function handle()
     {
-        dd(1);
+        dd(config('laraPermission.test'));
     }
 }
