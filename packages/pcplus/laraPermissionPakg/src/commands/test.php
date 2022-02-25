@@ -2,8 +2,10 @@
 
 namespace Pcplus\LaraPermissionPakg\Commands;
 
-
+use App\Models\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Hash;
+use Pcplus\LaraPermissionPakg\models\role;
 
 class test extends Command
 {
@@ -38,6 +40,18 @@ class test extends Command
      */
     public function handle()
     {
-        dd(config('laraPermission.test'));
+
+       $user = User::find(1);
+
+        dd($user->permissions()->sync(1));
+
+        $role = role::findByName('CoppyWriter');
+
+        dd($role->getPermissions());
+
+        role::query()->create([
+            'name' => 'CoppyWriter'
+        ]);
+        dd(1);
     }
 }

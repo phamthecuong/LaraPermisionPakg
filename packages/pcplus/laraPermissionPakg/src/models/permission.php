@@ -1,22 +1,22 @@
 <?php
 
-namespace Pcplus\LaraPermissionPakg\Models;
+namespace Pcplus\LaraPermissionPakg\models;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Permission extends Model {
+class permission extends Model {
 
-    private $table = 'permissions';
+    protected $table = 'permissions';
 
-    private $fillable = [
+    protected $fillable = [
         'name'
     ];
 
     public function roles() : BelongsToMany
     {
-        return $this->belongsToMany(Role::class, 'permission_has_role', 'permisson_id', 'role_id');
+        return $this->belongsToMany(role::class, 'permission_has_role', 'permisson_id', 'role_id');
     }
 
     public function users() : BelongsToMany
@@ -27,6 +27,11 @@ class Permission extends Model {
     public static function findByName($permissionName)
     {
         return self::query()->where('name', $permissionName)->first();
+    }
+
+    public function getRoles()
+    {
+        return $this->roles()->get()->pluck('name');
     }
 
 }
