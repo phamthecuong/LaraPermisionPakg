@@ -1,0 +1,11 @@
+{
+    "name": "pcplus/lara-permision-pakg",
+    "authors": [
+        {
+            "name": "Cuong PT",
+            "email": "phamthecuong52@gmail.com"
+        }
+    ],
+    "require": {},
+    "minimum-stability": "dev"
+}
