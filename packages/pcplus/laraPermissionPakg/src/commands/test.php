@@ -43,6 +43,8 @@ class test extends Command
 
        $user = User::find(1);
 
+       dd($user->checkPermissionTo('edit1'));
+
         dd($user->permissions()->sync(1));
 
         $role = role::findByName('CoppyWriter');
